@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Notes API (Bubble's assignment)
+  description: >-
+    A short API documentation to the notes assignment. The API supports creating, deleting(update a column) and reading all notes.
+  contact:
+    email: lielnag96@gmail.com
+  version: 1.0.0
+servers:
+  - url: https://localhost:3000
+    description: This is the server url. local machine.
+paths:
+  /note:
+    post:
+      summary: Create a new note
+      description: Post a new note to the database.
+      responses:
+        '201':
+          description: 201- note added successfully
+        '400':
+          description: Bad request when something is wrong while trying to post the data to the database.
+  /note/{id}:
+    patch:
+      summary: Find the note by id and update the is_deleted column to "true" 
+      description: Soft deleting a note by updating a column
+      parameters:
+        - name: id
+          in: path
+          description: The id of the note that should be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Bad request when something is wrong while trying to update the data to the database or if note was not found.
+  /notes:
+    get:
+      summary: Read all undeleted notes from the database 
+      responses:
+        '200':
+          description: successful operation
+        '404':
+          description: No notes found
