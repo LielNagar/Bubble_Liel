@@ -1,0 +1,16 @@
+{
+  "name": "bubble_liel",
+  "version": "1.0.0",
+  "description": "Liel's node.js assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liel Nagar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  }
+}
