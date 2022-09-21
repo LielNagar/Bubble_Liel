@@ -4,7 +4,7 @@ const router= new express.Router()
 
 router.get('/allnotes', async(req,res)=>{
     try{
-        const notes= await knex.select().from('notes')
+        const notes= await knex.select().from('notes').where('is_deleted', false)
         if(!notes) res.status(404).send()
         res.send(notes)
     }catch(e){
